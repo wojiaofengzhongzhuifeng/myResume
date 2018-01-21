@@ -13,20 +13,28 @@ window.onload = function () {
 // 监听页面的滑动
 window.onscroll = function (x) {
     var scrollHeight = window.scrollY
+
     if (scrollHeight === 0) {
         navCt1.classList.remove("active")
         rsAndCard.classList.remove("active")
-    } else {
+    } else if(scrollHeight >= 819){
+        activeGap()
+        // alert("sssss")
+    }
+    else {
         navCt1.classList.add("active")
         rsAndCard.classList.add("active")
     }
+
+
+
     addHeightLight()
     //添加heightlight效果
     function addHeightLight(){
         var closeIndex = findCloseIndex(scrollHeight, divTops)
         for (var i = 0; i < divTops.length; i++){
             heightTags[i].classList.remove("active")
-        }        
+        }
         heightTags[closeIndex].classList.remove("offset")
         var heightLightId = heightTags[closeIndex].id
         var heightLightATag = document.querySelector('a[href="#' + heightLightId + '"]')//   括号里面的字符串为'a[href="#card"]'
@@ -34,8 +42,9 @@ window.onscroll = function (x) {
         var allHeightLightLiTag = heightLightLiTag.parentNode.children
         for(var i = 0; i < allHeightLightLiTag.length;i++){
             allHeightLightLiTag[i].classList.remove("heightLight")
-        } 
-        allHeightLightLiTag[ navLi - closeIndex].classList.add("heightLight")
+        }
+
+        allHeightLightLiTag[closeIndex].classList.add("heightLight")
     }
 
 
@@ -47,11 +56,11 @@ for(var i = 0; i < heightTags.length; i++){
 
 var litags = document.querySelectorAll("div.nav ul li")
 for(var i = 0;i < litags.length;i++){
-    litags[i].onmouseenter = function(x){ 
+    litags[i].onmouseenter = function(x){
         var li = x.currentTarget
         li.classList.add("active")
     }
-    litags[i].onmouseleave = function(x){ 
+    litags[i].onmouseleave = function(x){
         var li = x.currentTarget
         li.classList.remove("active")
     }
@@ -79,9 +88,10 @@ for(let i=0; i<aTags.length;i++){
         x.preventDefault()
         let a = x.currentTarget
         let href = a.getAttribute("href")
+        console.log(href)
         let element = document.querySelector(href)
         let top = element.offsetTop
-    
+
         let currentTop = window.scrollY
         let targetTop = top - 80
         let s = targetTop - currentTop
@@ -112,6 +122,17 @@ function findCloseIndex (height, array){
     return closeIndex
 }
 //
+
+
+
+function activeGap(){
+    let gap = document.querySelectorAll(".gap")
+    for(var i = 0; i < gap.length; i++){
+        let level = gap[i].getAttribute("data-level")
+        gap[i].style.width = `${level}%`
+    }
+}
+
 
 
 
