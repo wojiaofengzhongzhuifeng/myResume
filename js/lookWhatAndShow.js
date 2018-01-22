@@ -27,14 +27,16 @@ for(var i = 0; i < heightTags.length; i++){
     heightTags[i].classList.add("offset")
 }
 
-var litags = document.querySelectorAll("div.nav ul li")
-for(var i = 0;i < litags.length;i++){
-    litags[i].onmouseenter = function(x){
-        var li = x.currentTarget
-        li.classList.add("active")
+//输入 页面滑动的距离 和 divTops 数组 ,返回距离与数组每个值的差最小的下标
+function findCloseIndex (height, array){
+    var closeIndex = 0
+    var closeNumber = Math.abs(height - array[0])
+    for(var i = 1;i < array.length;i++){
+        var everyNumber = Math.abs(array[i] - height)
+        if(everyNumber < closeNumber){
+            closeIndex = i
+        }
     }
-    litags[i].onmouseleave = function(x){
-        var li = x.currentTarget
-        li.classList.remove("active")
-    }
+    return closeIndex
 }
+//
