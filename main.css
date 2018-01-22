@@ -96,6 +96,30 @@ div.nav li.heightLight a::after { content:''; display:block; position: absolute;
 
 
 
+.swiper-container {
+    width: 888px;
+    height: 666px;
+}
+.swiper-button-next{
+    background-color: white;
+    left:100%;
+    width:64px;
+    height:64px;
+    border-radius: 50%;
+    bottom: 444px;
+}
+
+.swiper-button-prev{
+    background-color: white;
+    right:100%;
+    left: auto;
+    width:64px;
+    height:64px;
+    border-radius: 50%;
+    bottom: 444px;
+}
+
+
 /* 添加从div从下到上的效果 */
 [data-x].offset{
     transform: translateY(100px)
