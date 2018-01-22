@@ -5,6 +5,10 @@ li{ list-style: none; }
 *{ margin: 0; padding: 0; }
 
 
+
+.icon {width: 1em; height: 1em;vertical-align: -0.15em;fill: currentColor;overflow: hidden;}
+
+
 span.rs { font-size: 22px; color: #e6686a; }
 span.card { font-size: 21px; color: #9a9da2; }
 
