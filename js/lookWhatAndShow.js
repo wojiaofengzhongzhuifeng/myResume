@@ -1,3 +1,14 @@
+var heightTags = document.querySelectorAll("[data-x]");
+var divTops = []
+var navLi = document.querySelectorAll("div.nav>ul.clearfix>li").length - 1;
+
+
+
+for(var i = 0;i<heightTags.length;i++){
+    var divTop = heightTags[i].offsetTop + 250
+    divTops.push(divTop)
+}
+
 // 监听页面的滑动, 用户浏览到什么位置就在 nav 上高亮那个标题
 window.addEventListener("scroll", function(){
     var scrollHeight = window.scrollY

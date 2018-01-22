@@ -37,7 +37,6 @@ div.nav-ct .rs-ct.active{padding-top:9px;}
 .nav-ct1 { padding-right: 20px; }
 /* .nav-ct1>a { margin-top: 10px; display: inline-block; } */
 div.card { max-width: 940px; margin: 0 auto; background: #ffffff; box-shadow: 0px 1px 4px 1px rgba(0,0,0,0.75); }
-span.welcome { display: inline-block; /* height: 30px; */ padding: 6px 14px; background: #e06567; color: white; position: relative; }
 span.triangle { border: 7px solid transparent; display: block; width: 0; border-top-color: #e06567; border-left-color: #e06567; position: absolute; top: 22px; left: 6px; }
 h1 { padding-top: 30px; }
 hr { margin: 25px 0; }
