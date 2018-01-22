@@ -1,7 +1,7 @@
 var heightTags = document.querySelectorAll("[data-x]");
 var divTops = []
 var navLi = document.querySelectorAll("div.nav>ul.clearfix>li").length - 1;
-console.log(navLi)
+
 for(var i = 0;i<heightTags.length;i++){
     var divTop = heightTags[i].offsetTop + 250
     divTops.push(divTop)
@@ -10,14 +10,22 @@ for(var i = 0;i<heightTags.length;i++){
 window.onload = function () {
     welcome.classList.add("active")
 }
-// 监听页面的滑动
-window.onscroll = function (x) {
+
+
+
+
+
+
+
+
+//监听页面滚动, 当页面滚动的时候,就让 nav sticky
+window.addEventListener("scroll", function(){
     var scrollHeight = window.scrollY
 
     if (scrollHeight === 0) {
         navCt1.classList.remove("active")
         rsAndCard.classList.remove("active")
-    } else if(scrollHeight >= 819){
+    } else if(scrollHeight >= 819 && scrollHeight <= 900){
         activeGap()
         // alert("sssss")
     }
@@ -25,46 +33,10 @@ window.onscroll = function (x) {
         navCt1.classList.add("active")
         rsAndCard.classList.add("active")
     }
+})
 
 
 
-    addHeightLight()
-    //添加heightlight效果
-    function addHeightLight(){
-        var closeIndex = findCloseIndex(scrollHeight, divTops)
-        for (var i = 0; i < divTops.length; i++){
-            heightTags[i].classList.remove("active")
-        }
-        heightTags[closeIndex].classList.remove("offset")
-        var heightLightId = heightTags[closeIndex].id
-        var heightLightATag = document.querySelector('a[href="#' + heightLightId + '"]')//   括号里面的字符串为'a[href="#card"]'
-        var heightLightLiTag = heightLightATag.parentNode
-        var allHeightLightLiTag = heightLightLiTag.parentNode.children
-        for(var i = 0; i < allHeightLightLiTag.length;i++){
-            allHeightLightLiTag[i].classList.remove("heightLight")
-        }
-
-        allHeightLightLiTag[closeIndex].classList.add("heightLight")
-    }
-
-
-}
-
-for(var i = 0; i < heightTags.length; i++){
-    heightTags[i].classList.add("offset")
-}
-
-var litags = document.querySelectorAll("div.nav ul li")
-for(var i = 0;i < litags.length;i++){
-    litags[i].onmouseenter = function(x){
-        var li = x.currentTarget
-        li.classList.add("active")
-    }
-    litags[i].onmouseleave = function(x){
-        var li = x.currentTarget
-        li.classList.remove("active")
-    }
-}
 
 
 
@@ -134,27 +106,7 @@ function activeGap(){
 }
 
 
-var mySwiper = new Swiper ('.swiper-container', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: true,
 
-    // If we need pagination
-    pagination: {
-        el: '.swiper-pagination',
-    },
-
-    // Navigation arrows
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-
-    // And if we need scrollbar
-    scrollbar: {
-        el: '.swiper-scrollbar',
-    },
-})
 
 
 
