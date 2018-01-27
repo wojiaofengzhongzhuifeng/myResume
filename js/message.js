@@ -10,7 +10,7 @@
     });
 
 
-    showMessage()
+    showMessageFromLeanCloud()
 
     form.addEventListener("submit", function(e){
         e.preventDefault()
@@ -35,11 +35,7 @@
             contentInput.value = ""
         })
 
-        let liTag1 = document.createElement("li")
-
-
-        liTag1.innerHTML = messageNameContent + ":" + messagContent
-        messageShowPosition.appendChild(liTag1)
+        createLiAndPutContent(messageNameContent, messagContent)
 
     })
 
@@ -48,22 +44,27 @@
 
 
 
-    function showMessage(){
+    function showMessageFromLeanCloud(){
         let query = new AV.Query('messageOnLeanCloud');
         query.find().then(function ( messageFromLeanCloud) {
             for(var i = 0; i < messageFromLeanCloud.length;i++){
                 var name = messageFromLeanCloud[i]["attributes"]["name"]
                 var content = messageFromLeanCloud[i]["attributes"]["content"]
-                console.log(name)
-                console.log(content)
-                let liTag1 = document.createElement("li")
 
+                createLiAndPutContent(name, content)
 
-                liTag1.innerHTML = name + ":" + content
-                messageShowPosition.appendChild(liTag1)
             }
         });
     }
+
+
+
+    function createLiAndPutContent(a, b){
+        let liTag1 = document.createElement("li")
+        liTag1.innerHTML = a + ":  " + b
+        messageShowPosition.appendChild(liTag1)
+    }
+
 }()
 
 
