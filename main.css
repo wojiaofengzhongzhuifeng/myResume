@@ -149,3 +149,9 @@ div.nav li.heightLight a::after { content:''; display:block; position: absolute;
         margin-right:0%;
     }
 }
+
+
+div.message-section{
+    width:300px;
+    margin:40px auto;
+}
