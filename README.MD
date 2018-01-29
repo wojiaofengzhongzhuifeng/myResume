@@ -1,3 +1,17 @@
+## 简历
+
+1. 使用 MVC 思想完成代码的封装
+2. 写留言功能的思路
+   - 在我的代码中, 看能不能通过 leanCloud 的文档向 leanCloud 数据库存东西
+   - 在我的代码中, 看能不能通过 leanCloud 的文档向 leanCloud 数据库取东西
+   - 监听submit事件,如果submit了,就把存东西的代码执行
+   - 但是体验不好,要刷新, 所以我们在submit事件中除了存东西,还要把submit的内容通过 DOM 操作放到留言板上,这样用户就不用刷新也能看到自己的留言内容了
+   - 但是, 在数据库的内容没有显示到页面, 所以我们在一开始就应该执行取东西的代码
+
+
+
+
+
 ## 做简历的历程
 
 要做的的效果的英文名称
@@ -100,19 +114,19 @@
 
       13. 给div添加id
       14. 给div添加变化的css，注意选择器有`.active`
-         3. 给js添加代码，作用是给div动态添加`class=active`
+      15. 给js添加代码，作用是给div动态添加`class=active`
 
-      15. 第三个效果：鼠标进入关于博客技能作品的时候，底部有红线从左到右
+      16. 第三个效果：鼠标进入关于博客技能作品的时候，底部有红线从左到右
 
-      16. `a:hover::after{}`是什么意思？
+      17. `a:hover::after{}`是什么意思？
 
-      17. 当我在css的hover写了中文字符串，应该字母检查错误？
+      18. 当我在css的hover写了中文字符串，应该字母检查错误？
 
-      18. ===
+      19. ===
 
-      19. `http://js.jirengu.com/fobigixafu/1/edit?html,css,output`   为什么不要用`bottom:0`
+      20. `http://js.jirengu.com/fobigixafu/1/edit?html,css,output`   为什么不要用`bottom:0`
 
-      20. 有关动画的英文单词都是什么,都是什么意思?
+      21. 有关动画的英文单词都是什么,都是什么意思?
 
       ```
       transition(过渡): all 0.3s
@@ -134,21 +148,21 @@
 
       -   那我想知道我mouseenter的是作品element还是博客element,应该怎么办?
 
-            ```
-            用户操作的元素
-            console.log(x.target)
-            监听的元素
-            console.log(x.currentTarget)
-
-            如
-            <a>
-            	<span>作品</span>
-            </a>
-
-            我对a监听,然后点击的是span,那么x.target打印出spanelement,x.currentTarget打印出aelement
-            ```
-
-            所以应该使用`x.currentTarget`来获得你操作的element
+              ​```
+              用户操作的元素
+              console.log(x.target)
+              监听的元素
+              console.log(x.currentTarget)
+              
+              如
+              <a>
+              	<span>作品</span>
+              </a>
+              
+              我对a监听,然后点击的是span,那么x.target打印出spanelement,x.currentTarget打印出aelement
+              ​```
+              
+              所以应该使用`x.currentTarget`来获得你操作的element
 
           - 我想找到`<a>作品</a>`element的下一个element(即`<ul></ul>`)
 
@@ -157,9 +171,9 @@
 9.    当我把js文件放在最上面的时候,出现问题了,我获取不到博客,作品的element,问题就出在把js引入放在最前面,那么浏览器当然搜索不到element啦,所以js文件都应该放在`</body>`之前
 
 10.    ```
-        mouseenter/mouseleave   指针移到有事件监听的元素内
-        mouseover/mouseout      指针移到有事件监听的元素或者它的子元素内
-        两组区别
+          mouseenter/mouseleave   指针移到有事件监听的元素内
+          mouseover/mouseout      指针移到有事件监听的元素或者它的子元素内
+          两组区别
       ```
    ```
 
@@ -244,26 +258,26 @@
 62.    js的主要作用: 找html的元素
 
 63.    通过html 的id,class 属性找
-       2. 已经拥有html元素,通过这个元素的节点关系找(如父节点,子节点,兄弟节点)
+          2. 已经拥有html元素,通过这个元素的节点关系找(如父节点,子节点,兄弟节点)
 
 64.    ```
-          heightTags[closeIndex].id
-          document.querySelector("a[href='#skill']")
-          
-          
-          
-          其中  heightTags[closeIndex].id   想代替 skill 应该怎么做?
-          去掉 - 加引号 - 加加号 - 加变量
-           document.querySelector("a[href='#skill']")
-           1. 去掉skill,变成
-           document.querySelector("a[href='#']")
-           2. 根据字符串的首位和末位使用的是双引号还是单引号来添加单双引号
-           document.querySelector("a[href='#""]")
-           3. 在新加的单双引号加两个加号
-           document.querySelector("a[href='#"++"]")
-           4. 在两个加号中加heightTags[closeIndex].id
-           document.querySelector("a[href='#"+heightTags[closeIndex].id+"]")
-      ```
+             heightTags[closeIndex].id
+             document.querySelector("a[href='#skill']")
+             
+             
+             
+             其中  heightTags[closeIndex].id   想代替 skill 应该怎么做?
+             去掉 - 加引号 - 加加号 - 加变量
+              document.querySelector("a[href='#skill']")
+              1. 去掉skill,变成
+              document.querySelector("a[href='#']")
+              2. 根据字符串的首位和末位使用的是双引号还是单引号来添加单双引号
+              document.querySelector("a[href='#""]")
+              3. 在新加的单双引号加两个加号
+              document.querySelector("a[href='#"++"]")
+              4. 在两个加号中加heightTags[closeIndex].id
+              document.querySelector("a[href='#"+heightTags[closeIndex].id+"]")
+       ```
    ```
 
 64. 添加`class=active`的时候,一个动作对应一个class名,如对于技能来说,当我鼠标悬浮上去的时候,红色的进度条从左到右,当我浏览到技能div的时候,也是效果也是红色的进度条从左到右.那么这两个动作添加的名字就不能一致.    
