@@ -3,11 +3,26 @@
 
     let view = document.querySelector('div.message-section')
 
-
+    let model = {
+        //获取数据
+        fetch: function(){
+            let query = new AV.Query('messageOnLeanCloud');
+            return query.find()
+        },
+        save: function(a, b){
+            let Message = AV.Object.extend('messageOnLeanCloud');//前面的是构造函数, 后面的是表的名字
+            let message = new Message();//前面的是构造函数构造的对象, 对象有增删改查 API
+            return message.save({
+                name: a,//保存的内容
+                content: b
+            })
+        }
+    }
     let controller = {
         view: null,
-        init: function(view){
+        init: function(view, model){
             this.view = view
+            this.model = model
             this.initAV()
             this.getInformationShowInformation()
             this.form = view.querySelector("#messageForm")
@@ -41,15 +56,11 @@
             this.messagContent = contentInput.value
 
 
+            console.log(this.messagContent)
 
 
             //saveInformation
-            let Message = AV.Object.extend('messageOnLeanCloud');//前面的是构造函数, 后面的是表的名字
-            let message = new Message();//前面的是构造函数构造的对象, 对象有增删改查 API
-            message.save({
-                name: this.messageNameContent,//保存的内容
-                content: this.messagContent
-            }).then(function(object) {
+           this.model.save(this.messageNameContent, this.messagContent).then(function(object) {
                 alert('保存成功');//保存成功要做的事情
                 nameInput.value = ""
                 contentInput.value = ""
@@ -61,14 +72,12 @@
         },
 
         getInformationShowInformation: function(){
-            let query = new AV.Query('messageOnLeanCloud');
-            query.find().then(function ( messageFromLeanCloud) {
+            this.model.fetch().then(function ( messageFromLeanCloud) {
                 for(let i = 0; i < messageFromLeanCloud.length;i++){
                     let name = messageFromLeanCloud[i]["attributes"]["name"]
                     let content = messageFromLeanCloud[i]["attributes"]["content"]
 
-                    console.log(this.name)
-                    console.log(this.content)
+
 
 
 
@@ -91,7 +100,7 @@
             })
         }
     }
-    controller.init(view)
+    controller.init(view, model)
 
 
 
