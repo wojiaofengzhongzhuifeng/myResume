@@ -44,7 +44,7 @@
 
 //使用 MVC 思想完成的代码
 !function(){
-    var view = document.querySelector("div.nav")
+    let view = View("div.nav")
 
     var controller = {
         view: null,

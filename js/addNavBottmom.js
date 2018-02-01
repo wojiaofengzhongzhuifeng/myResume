@@ -92,8 +92,9 @@
 */
 
 !function(){
-    var view = document.querySelector("div.nav")
-    
+
+    let view = View("div.nav")
+
     var controller = {
         view: null,
         init: function(view){

@@ -28,7 +28,8 @@
 //使用 MVC 思想封装代码
 
 !function(){
-    var view = document.querySelector("#navCt1")
+    let view = View("#navCt1")
+
     var controller = {
         view: null,
         init: function(view){

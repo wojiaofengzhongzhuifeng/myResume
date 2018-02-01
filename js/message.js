@@ -1,7 +1,7 @@
 !function(){
 
 
-    let view = document.querySelector("div.message-section")
+    let view = View("div.message-section")
 
     let controller = {
         view: null,
@@ -70,21 +70,7 @@
 
 
 
-    let model = {
-        fetch: function() {
-            let query = new AV.Query('messageOnLeanCloud');
-            return query.find()
-        },
-        save: function(messageNameContent, messagContent){
-            //saveInformation
-            let Message = AV.Object.extend('messageOnLeanCloud');//前面的是构造函数, 后面的是表的名字
-            let message = new Message();//前面的是构造函数构造的对象, 对象有增删改查 API
-            return message.save({
-                name: messageNameContent,//保存的内容
-                content: messagContent
-            })
-        }
-    }
+    let model = Model('messageOnLeanCloud')
     controller.init(view, model)
 
 

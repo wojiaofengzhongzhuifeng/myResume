@@ -29,6 +29,10 @@
  !function(){
     var view = document.querySelector("div.mySlider")
 
+
+
+
+
     var controller = {
         view: null,
         init: function(view){
