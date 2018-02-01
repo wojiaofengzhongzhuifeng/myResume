@@ -10,8 +10,6 @@
             messageNameContent:null,  //①
             messagContent: null,  //①
             init: function(view, model){
-                this.view = view
-                this.model = model
                 this.form = view.querySelector("#messageForm")
                 this.initAV()
                 this.loadInformation()
