@@ -7,6 +7,7 @@
    - 监听submit事件,如果submit了,就把存东西的代码执行
    - 但是体验不好,要刷新, 所以我们在submit事件中除了存东西,还要把submit的内容通过 DOM 操作放到留言板上,这样用户就不用刷新也能看到自己的留言内容了
    - 但是, 在数据库的内容没有显示到页面, 所以我们在一开始就应该执行取东西的代码
+3. 使用面向对象的思想完成函数封装
 
 
 
@@ -148,21 +149,21 @@
 
       -   那我想知道我mouseenter的是作品element还是博客element,应该怎么办?
 
-              ​```
-              用户操作的元素
-              console.log(x.target)
-              监听的元素
-              console.log(x.currentTarget)
-              
-              如
-              <a>
-              	<span>作品</span>
-              </a>
-              
-              我对a监听,然后点击的是span,那么x.target打印出spanelement,x.currentTarget打印出aelement
-              ​```
-              
-              所以应该使用`x.currentTarget`来获得你操作的element
+                ​```
+                用户操作的元素
+                console.log(x.target)
+                监听的元素
+                console.log(x.currentTarget)
+                
+                如
+                <a>
+                	<span>作品</span>
+                </a>
+                
+                我对a监听,然后点击的是span,那么x.target打印出spanelement,x.currentTarget打印出aelement
+                ​```
+                
+                所以应该使用`x.currentTarget`来获得你操作的element
 
           - 我想找到`<a>作品</a>`element的下一个element(即`<ul></ul>`)
 
@@ -171,9 +172,9 @@
 9.    当我把js文件放在最上面的时候,出现问题了,我获取不到博客,作品的element,问题就出在把js引入放在最前面,那么浏览器当然搜索不到element啦,所以js文件都应该放在`</body>`之前
 
 10.    ```
-          mouseenter/mouseleave   指针移到有事件监听的元素内
-          mouseover/mouseout      指针移到有事件监听的元素或者它的子元素内
-          两组区别
+            mouseenter/mouseleave   指针移到有事件监听的元素内
+            mouseover/mouseout      指针移到有事件监听的元素或者它的子元素内
+            两组区别
       ```
    ```
 
@@ -258,25 +259,25 @@
 62.    js的主要作用: 找html的元素
 
 63.    通过html 的id,class 属性找
-          2. 已经拥有html元素,通过这个元素的节点关系找(如父节点,子节点,兄弟节点)
+             2. 已经拥有html元素,通过这个元素的节点关系找(如父节点,子节点,兄弟节点)
 
 64.    ```
-             heightTags[closeIndex].id
-             document.querySelector("a[href='#skill']")
-             
-             
-             
-             其中  heightTags[closeIndex].id   想代替 skill 应该怎么做?
-             去掉 - 加引号 - 加加号 - 加变量
-              document.querySelector("a[href='#skill']")
-              1. 去掉skill,变成
-              document.querySelector("a[href='#']")
-              2. 根据字符串的首位和末位使用的是双引号还是单引号来添加单双引号
-              document.querySelector("a[href='#""]")
-              3. 在新加的单双引号加两个加号
-              document.querySelector("a[href='#"++"]")
-              4. 在两个加号中加heightTags[closeIndex].id
-              document.querySelector("a[href='#"+heightTags[closeIndex].id+"]")
+                heightTags[closeIndex].id
+                document.querySelector("a[href='#skill']")
+                
+                
+                
+                其中  heightTags[closeIndex].id   想代替 skill 应该怎么做?
+                去掉 - 加引号 - 加加号 - 加变量
+                 document.querySelector("a[href='#skill']")
+                 1. 去掉skill,变成
+                 document.querySelector("a[href='#']")
+                 2. 根据字符串的首位和末位使用的是双引号还是单引号来添加单双引号
+                 document.querySelector("a[href='#""]")
+                 3. 在新加的单双引号加两个加号
+                 document.querySelector("a[href='#"++"]")
+                 4. 在两个加号中加heightTags[closeIndex].id
+                 document.querySelector("a[href='#"+heightTags[closeIndex].id+"]")
        ```
    ```
 
