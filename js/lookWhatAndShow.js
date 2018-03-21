@@ -17,7 +17,7 @@
         addHeightLightAndremoveOffset()
         //添加heightlight效果
         function addHeightLightAndremoveOffset(){
-            var closeIndex = findCloseIndex(scrollHeight + 200, divTops)
+            var closeIndex = findCloseIndex(scrollHeight + 120, divTops)
             for (var i = 0; i < divTops.length; i++){
                 heightTags[i].classList.remove("active")
             }
