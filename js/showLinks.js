@@ -14,7 +14,18 @@ for(let i=0;i<works.length;i++){
     })
 
     //当点击项目的时候, 跳转到相应项目github中
-    works[i].addEventListener("click", function(){
-
+    works[i].addEventListener("click", function(e){
+        let clickImg = e.currentTarget
+        console.log(clickImg)
+        let url = clickImg.getAttribute("data-url")
+        console.log(url)
+        window.open(url)
+    })
+    works[i].addEventListener("mouseleave", function(e){
+        let clickImg = e.currentTarget
+        let allDescription = clickImg.parentNode.parentNode.querySelectorAll(".description")
+        for(let i=0;i<allDescription.length;i++){
+            allDescription[i].classList.remove("active")
+        }
     })
 }

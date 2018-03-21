@@ -98,9 +98,21 @@ p.abstract { max-width: 940px; margin: 0 auto; text-align: center; line-height: 
     display: block;
     background: rgba(192,192,192, 0.5);
     color: white;
-    cursor:pointer ;
+    cursor:pointer;
+    pointer-events: none;
 }
-
+.words-section .description .key-word{
+    margin-bottom: 5px;
+    border-bottom: 1px solid beige;
+}
+.words-section .description h3{
+    padding:0 10px;
+    margin-top:10px;
+    margin-bottom: 2px;
+}
+.words-section .description p{
+    margin: 0 10px
+}
 .wordNav { display: inline-block; }
 .wordNav { display: inline-block; margin-bottom: 30px; }
 .bar { height: 5px; background: white; border-radius: 2px; margin-top: 7px; }
