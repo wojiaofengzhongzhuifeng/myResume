@@ -60,12 +60,23 @@ p.abstract { max-width: 940px; margin: 0 auto; text-align: center; line-height: 
 .skill-section h2 { padding-bottom: 32px; text-align: center; }
 
 .skill-section h2 { font-size: 32px; color: #404457; padding-bottom: 32px; text-align: center; }
-.skill-section ul { background: #fff; box-shadow: 0px 1px 0px 1px rgba(0,0,0,0.2); max-width: 940px; margin: 0 auto; padding: 34px 46px; }
+/*.skill-section ul { background: #fff; box-shadow: 0px 1px 0px 1px rgba(0,0,0,0.2); max-width: 940px; margin: 0 auto; padding: 34px 46px; }*/
 .skill-section ul li{ font-size: 14px; }
 .gap-ct{ border:1px solid #fae1e1; height:5px; border-radius: 2px; background: #fae1e1; }
 .gap{ background: #e6686a; height: 100%;  padding-top:1px; transition: all 1s; width:0%}
-.skill-section ul li { float: left; width: 48%; padding: 20px 0; }
-.skill-section ul li:nth-child(even){ float: right; }
+/*.skill-section ul li { float: left; width: 48%; padding: 20px 0; }*/
+/*.skill-section ul li:nth-child(even){ float: right; }*/
+.skill-section .skills-ct{
+    width:600px;
+    margin:0 auto;
+}
+.skill-section .skills-ct>ol>li>ul>li{
+    padding:10px 10px 10px 30px;
+}
+.skill-section .skills-ct h4{
+    border-left:1px solid grey;
+    padding-left:10px;
+}
 .words-section { max-width: 940px; margin: 50px auto; text-align: center; }
 .words-section h2 { padding-bottom: 31px; font-size: 32px; color: #404457; }
 .words-section ul li { float: left; padding-right: 40px; cursor: pointer; }

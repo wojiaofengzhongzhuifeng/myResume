@@ -1,10 +1,9 @@
 
-
 let myChart = echarts.init(document.getElementById('main'));
 
 let option = {
     title: {
-        text: '技能雷达图'
+        text: ''
     },
     legend: {
         data: ['饶家俊']
