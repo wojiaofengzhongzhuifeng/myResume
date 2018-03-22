@@ -76,6 +76,7 @@
             }            
         },
         scrollToElement: function(element){
+            console.log(element)
             let top = element.offsetTop
             let currentTop = window.scrollY
             let targetTop = top - 80
